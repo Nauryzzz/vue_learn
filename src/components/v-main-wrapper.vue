@@ -23,7 +23,7 @@
             
         },
         mounted() {
-            console.log("HELLO!");
+            console.log("I'm ready!");
         }
     }
 </script>
