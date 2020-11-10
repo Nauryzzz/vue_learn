@@ -1,12 +1,20 @@
 <template>
     <div class="v-catalog">
-        <button>CATALOG TEST</button>
+        <h1>Catalog</h1>
+        <vCatalogItem />
+        <vCatalogItem />
+        <vCatalogItem />
     </div>
 </template>
 
 <script>
+    import vCatalogItem from "./v-catalog-item.vue";
+
     export default {
-        name: "v-catalog"
+        name: "v-catalog",
+        components: {
+            vCatalogItem
+        }
     }
 </script>
 
