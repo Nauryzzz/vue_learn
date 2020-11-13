@@ -1,46 +1,33 @@
 <template>
     <div class="v-main-wrapper">
-        {{title}}
-        <vCatalog />
-        <vCart />
+        <keep-alive>
+            <router-view></router-view>
+        </keep-alive>
     </div>
 </template>
 
 <script>
-    import vCatalog from "./v-catalog";
-    import vCart from "./v-cart.vue";
-
     export default {
         name: "v-main-wrapper",
-        components: {
-            vCatalog,
-            vCart
-        },
         props: {},
         data() {
             return {
-                title: "Main wrapper"
             }
         },
         computed: {
-
         },
         methods: {
             
         },
         mounted() {
-            console.log("I'm ready!");
+            
         }
     }
 </script>
 
-<style>
+<style lang="scss">
     .v-main-wrapper {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        max-width: 900px;
         margin: 0 auto;
+        max-width: 900px;
     }
 </style>
