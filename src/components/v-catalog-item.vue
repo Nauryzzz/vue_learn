@@ -36,10 +36,14 @@
         padding: $padding * 2;
         margin-bottom: $margin * 2;
         border-radius: 5%;
+        transition: all .2s linear;
         &__image {
             //max-width: 100%;
             //height: auto;
             width: 100px;
+        }
+        &:hover {
+            transform: translateY(-3px);
         }
     }
 </style>
