@@ -1,9 +1,9 @@
 <template>
     <div class="v-cart-item">
-        <img class="v-cart-item__image" :src="require('../assets/images/' + cart_item_data.image)" alt="img">
+        <img class="v-cart-item__image" :src="require('../../assets/images/' + cart_item_data.image)" alt="img">
         <div class="v-cart-item__info">
             <p>{{cart_item_data.name}}</p>
-            <p>{{cart_item_data.price}}</p>
+            <p>{{cart_item_data.price | toFix | formattedPrice}}</p>
             <p>{{cart_item_data.article}}</p>
         </div>
         <div class="v-cart-item__quantity">
@@ -19,6 +19,9 @@
 </template>
 
 <script>
+    import toFix from "../../filters/toFixed";
+    import formattedPrice from "../../filters/priceFormat";
+
     export default {
         name: "v-cart-item",
         props: {
@@ -26,6 +29,10 @@
                 type: Object,
                 default: () => {}
             }
+        },
+        filters: {
+            toFix,
+            formattedPrice
         },
         methods: {
             deleteFromCart() {
@@ -39,7 +46,7 @@
             }
         },
         mounted() {
-            this.$set(this.cart_item_data, "quantity", 1)
+            
         }
     }
 </script>
