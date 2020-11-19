@@ -82,7 +82,7 @@
 
         &__link_to_cart {
             position: absolute;
-            top: 10px;
+            top: 90px;
             right: 10px;
             padding: $padding * 2;
             border: 1px solid  #ccc;

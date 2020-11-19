@@ -79,7 +79,7 @@
             vSelect
         },
         computed: {
-            ...mapGetters(["PRODUCTS", "CART", "IS_MOBILE", "IS_DESKTOP"]),
+            ...mapGetters(["PRODUCTS", "CART", "IS_MOBILE", "IS_DESKTOP", "SEARCH_VALUE"]),
             filteredProducts() {
                 if (this.sortedProducts.length) {
                     return this.sortedProducts
@@ -103,7 +103,7 @@
             },
             sortByCategories(category) {
                 let vm = this;
-                this.sortedProducts = [...this.PRODUCTS]
+                this.sortedProducts = [...this.PRODUCTS];
                 this.sortedProducts = this.sortedProducts.filter(function (item) {
                     return item.price >= vm.minPrice && item.price <= vm.maxPrice
                 })
@@ -113,6 +113,21 @@
                         return e.category === category.name
                     })
                 }
+            },
+            sortProductsBySearchValue(value) {
+                this.sortedProducts = [...this.PRODUCTS];
+                if (value) {
+                    this.sortedProducts = this.sortedProducts.filter(function (item) {
+                        return item.name.toLowerCase().includes(value.toLowerCase())
+                    })
+                } else {
+                    this.sortedProducts = [...this.PRODUCTS];
+                }
+            },
+        },
+        watch: {
+            SEARCH_VALUE() {
+                this.sortProductsBySearchValue(this.SEARCH_VALUE);
             }
         },
         mounted() {
@@ -121,6 +136,7 @@
                     if (response.data) {
                         console.log("Data arrived");
                         this.sortByCategories();
+                        this.sortProductsBySearchValue(this.SEARCH_VALUE);
                     }
                 })
         }
@@ -139,7 +155,7 @@
 
         &__link_to_cart {
             position: absolute;
-            top: 10px;
+            top: 90px;
             right: 10px;
             padding: $padding * 2;
             border: 1px solid  #ccc;

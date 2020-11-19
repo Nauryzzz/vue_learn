@@ -12,6 +12,7 @@ Vue.use(Vuex);
 
 const store = new Vuex.Store({
     state: {
+        searchValue: "",
         isMobile: false,
         isDesktop: true,
         products: [],
