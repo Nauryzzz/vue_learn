@@ -1,9 +1,11 @@
 <template>
     <div class="v-main-wrapper">
         <vHeader />
+        <hr>
         <keep-alive>
             <router-view></router-view>
         </keep-alive>
+        <hr>
     </div>
 </template>
 

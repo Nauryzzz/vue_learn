@@ -8,6 +8,7 @@ import vMainPage from "@/components/main-page/v-main-page";
 Vue.use(Router);
 
 let router = new Router({
+    mode: "history",
     routes: [
         {
             path: "/",

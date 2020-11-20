@@ -15,7 +15,6 @@
                 @select="sortByCategories"
                 :isExpanded="IS_DESKTOP"
             />            
-        
 
             <div class="range-slider">
                 <input 
@@ -41,7 +40,6 @@
                 <p>Max: {{maxPrice}}</p>
             </div>
         </div>
-
         
         <div class="v-catalog__list">
             <vCatalogItem 
@@ -134,7 +132,6 @@
             this.GET_PRODUCTS_FROM_API()
                 .then(response => {
                     if (response.data) {
-                        console.log("Data arrived");
                         this.sortByCategories();
                         this.sortProductsBySearchValue(this.SEARCH_VALUE);
                     }
